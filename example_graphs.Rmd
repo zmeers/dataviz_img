@@ -1,0 +1,83 @@
+---
+title: "example"
+author: "Zoe Meers"
+date: "19/11/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+```
+```{r}
+graph5 <- read.csv("~/dropboxsydneyuni/agtech/R/plots/data_files/graph5.csv",stringsAsFactors = FALSE)
+#ggplot
+no <- ggplot(graph5, 
+       aes(x=type, 
+           y=value)) + 
+  geom_bar(stat = "identity",  
+           aes(fill = type), 
+           alpha=0.80) +
+  geom_text(aes(label=scales::dollar(value)), 
+            colour = ussc_colours("dark blue"),
+            family="neosanspro",
+            vjust='inward',
+            size=3.5) +
+ # theme_ussc() + 
+  labs(title = "Do not do this...",
+    #   subtitle = '2005 - Q1 2018',
+      fill = '',
+       caption = 'Source: USSC analysis',
+       x='Type of investor', 
+       y='$ invested') +
+  theme(
+      legend.position="bottom", 
+     #   axis.text.y  = element_blank(),
+     #   axis.text.x=element_text(family='universLight'),
+        #axis.ticks  = element_blank(), 
+        panel.grid.major.x=element_line(),
+        panel.grid.minor.x= element_line(),
+        panel.grid.minor.y= element_line(),
+        panel.grid.major.y = element_line(),
+        panel.border = element_rect(colour = "black", size = 3)
+     ) +
+  guides(col = guide_legend(nrow = 4, byrow = TRUE)) + 
+  scale_y_continuous(labels=scales::dollar, 
+                     # trans='log10', 
+                     position='left')  +
+   scale_x_discrete(labels = c(`Government Grants/Research Initiatives` = "Government\nGrants/Research\n Initiatives", `Venture Capital Private Equity Firms` = "Venture\nCapital/\nPrivate Equity\nFirms", `Angel Investors/Family Offices`="Angel Investors/\nFamily Offices", `Corporate/Industry Representative`="Corporate/\nIndustry \nRepresentative", `Incubators/Accelerators`="Accelerator/\nIncubator", `Mixed Syndicate`="Mixed\nSyndicate"))
+no
+yes <- ggplot(graph5, 
+       aes(x=reorder(`type`, + value), 
+           y=value)) + 
+  geom_bar(stat = "identity",  
+           fill = ussc_colours("light blue"), 
+           alpha=0.80) +
+  geom_text(aes(label=scales::dollar(value)), 
+            colour = ussc_colours("dark blue"),
+            family="neosanspro",
+            vjust='inward',
+            size=3.5) +
+  theme_ussc() + 
+  labs(title = "Do this:",
+       #subtitle = '2005 - Q1 2018',
+       caption = 'Source: USSC analysis',
+       x='', 
+       y='') +
+  theme(legend.position="none", 
+        axis.text.y  = element_blank(),
+        axis.text.x=element_text(family='universLight'),
+        axis.ticks  = element_blank(), 
+        panel.grid.major.x=element_blank(),
+        panel.grid.minor.x= element_blank(), 
+        panel.grid.minor.y= element_blank(), 
+        panel.grid.major.y = element_blank(), 
+        panel.border = element_blank()) +
+  scale_y_continuous(labels=scales::dollar, 
+                     # trans='log10', 
+                     position='left')  +
+   scale_x_discrete(labels = c(`Government Grants/Research Initiatives` = "Government\nGrants/Research\n Initiatives", `Venture Capital Private Equity Firms` = "Venture\nCapital/\nPrivate Equity\nFirms", `Angel Investors/Family Offices`="Angel Investors/\nFamily Offices", `Corporate/Industry Representative`="Corporate/\nIndustry \nRepresentative", `Incubators/Accelerators`="Accelerator/\nIncubator", `Mixed Syndicate`="Mixed\nSyndicate"))
+cowplot::plot_grid(no, yes)
+ggsave(last_plot(),  file = "comparison2.png", width = 16)
+```
+

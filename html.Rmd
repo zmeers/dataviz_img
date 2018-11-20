@@ -1,0 +1,171 @@
+---
+title: "html"
+author: "Zoe Meers"
+date: "23/10/2018"
+output: html_document
+---
+
+### USSC data visualization
+
+
+</style>
+
+<div>
+
+A standard USSC graph (for `R` users, `theme_ussc()`) has the following elements:
+
+* A title in Neo Sans Pro, size 14
+
+* <span style="background-color:#444444; color: white;"> Font colour: #444444</span>
+
+
+<div id = "container" style = "width: 80%;">
+
+![](ussc_theme.png)
+
+
+
+</div>
+
+* Base text in Univers Ltd
+
+    * Axis titles, size 11
+
+    * Axis text, size 11
+
+    * <span style="background-color:#D3D3D3; color: black;">Axis ticks, #D3D3D3</span>
+
+* Thin grey grid lines (à la Tufte):
+
+    * <span style="background-color:#D3D3D3; color: black;">Panel border colour: #D3D3D3</span>
+
+    * <span style="background-color:#D3D3D3; color: black;">Axis ticks: #D3D3D3</span>
+
+* Legend:
+
+    * Legend text, size 11, Univers Light
+
+    * Legend title, size 10
+
+    * Legend key size (size of point), 10 pts
+
+
+* Extraneous text:
+
+    * Caption, size 10, Univers Light
+
+    * Subtitle, size 11, Univers Light
+
+
+* Blank background
+
+* Blank strip background (for facets or small multiples)
+
+* A USSC colour scheme
+
+</div>
+
+We also have a Univers-only theme.
+
+<div id = "container">
+
+* A title in Univers, size 14
+
+* <span style="background-color:#444444; color: white;">Font colour: #444444</span>
+
+
+<div id = "container" style = "width:80%;">
+
+![](ussc_theme_univers.png)
+
+</div>
+
+* Base text in Univers Ltd
+
+    * Axis titles, size 11
+
+    * Axis text, size 11
+
+    * <span style="background-color:#D3D3D3; color: black;">Axis ticks, #D3D3D3</span>
+
+
+* Thin grey grid lines (à la Tufte):
+
+    * <span style="background-color:#D3D3D3; color: black;">Panel border colour: #D3D3D3</span>
+
+    * <span style="background-color:#D3D3D3; color: black;">Axis ticks: #D3D3D3</span>
+
+
+* Legend:
+
+    * Legend text, size 11
+
+    * Legend title, size 10
+
+    * Legend key size (size of point), 10 pts
+
+
+* Extraneous text:
+
+    * Caption, size 10
+
+    * Subtitle, size 11
+
+
+* Blank background
+
+* Blank strip background (for facets or small multiples)
+
+* A USSC colour scheme
+</div>
+
+
+
+
+Light font versions of the USSC theme are also available:
+
+<div>
+
+
+<div id = "container" style = "width:50%;">
+
+#### Neo Sans Pro Light
+
+![](theme_ussc_light.png)
+
+</div>
+
+<div id = "container" style = "width:50%;">
+
+#### Univers Light
+
+
+![](theme_ussc_light_univers.png)
+
+
+</div> 
+</div> 
+
+### Tufte Tips (rephrased)
+
+* Keep in mind the data-ink ratio -- data should always "win"
+
+* Erase non-data ink, within reason
+
+* Erase chart junk
+
+* Think about grid lines, axis lines, colours, patterns - are they necessary?
+
+### General data visualization tips
+
+* Avoid plotting graphs with different scales on the same plot or panel
+
+* Direct annotations are preferable to legends
+
+
+
+
+
+
+
+
